@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti — Erica Marchetti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">Erica Marchetti</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Lavori</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="contact-hero">
+      <div class="reveal">
+        <h1 class="contact-title">Lavoriamo<br><em>insieme?</em></h1>
+      </div>
+
+      <div class="contact-links-grid reveal">
+        <a class="contact-item" href="mailto:erica.marchetti74@email.com">
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-value">erica.marchetti74@email.com</span>
+          <span class="contact-item-arrow">→</span>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/erica-marchetti-963781183/" target="_blank">
+          <span class="contact-item-label">LinkedIn</span>
+          <span class="contact-item-value">linkedin.com/in/ericamarchetti</span>
+          <span class="contact-item-arrow">→</span>
+        </a>
+      </div>
+  </main>
+
+  <footer>
+    <span>© 2024 Erica Marchetti</span>
+    <span>Visual Designer — Roma</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Simple form submission feedback
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      const originalText = btn.textContent;
+      btn.textContent = 'Inviando...';
+      btn.style.opacity = '0.5';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = 'Messaggio Inviato!';
+        btn.style.background = '#c2506d';
+        btn.style.opacity = '1';
+        this.reset();
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      }, 1500);
+    });
+  </script>
+</body>
+
+</html>
